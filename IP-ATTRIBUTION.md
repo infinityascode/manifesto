@@ -4,7 +4,7 @@
 
 ### Original Creator
 - **Concept**: ∞aC (Infinity as Code)
-- **Creator**: [Your Name/Organization]
+- **Creator**: Cor Schutte (cor@prettysim.pl) / Prettysimpl
 - **First Published**: July 7, 2025
 - **Repository**: github.com/infinityascode/manifesto
 - **Initial Commit**: [Timestamp automatically recorded in Git history]
