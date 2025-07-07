@@ -1,0 +1,38 @@
+title: "∞aC (Infinity as Code) - Official Manifesto"
+description: "Pioneering limitless business transformation through systematic AI-readiness"
+url: "https://infinityascode.github.io/manifesto"
+baseurl: "/manifesto"
+
+# SEO and Social Media
+author: "∞aC Community"
+twitter:
+  username: infinityascode
+  card: summary_large_image
+
+# GitHub Pages
+github:
+  repository_url: "https://github.com/infinityascode/manifesto"
+  
+# Theme (using GitHub's default)
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO optimization
+seo:
+  name: "∞aC (Infinity as Code)"
+  type: "WebSite"
+  links:
+    - "https://github.com/infinityascode/manifesto"
+
+# Social sharing defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/og-image.png"  # Add when created
+      twitter:
+        card: "summary_large_image"
