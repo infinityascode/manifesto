@@ -8,7 +8,7 @@
 
 ## 📖 Core Documents
 
-### 🎯 **[THE MANIFESTO](MANIFESTO.md)**
+### 🎯 **[THE COMPLETE MANIFESTO](manifesto.md)**
 Complete ∞aC principles, framework, and revolutionary paradigm
 
 ### 🤝 **[CONTRIBUTING GUIDE](CONTRIBUTING.md)**
@@ -56,7 +56,7 @@ Businesses with ∞aC foundations will have:
 ## 📈 Getting Started with ∞aC
 
 ### 1. **Understand the Concept**
-Read the complete [∞aC Manifesto](MANIFESTO.md) to grasp the revolutionary paradigm
+Read the complete [∞aC Manifesto](manifesto.md) to grasp the revolutionary paradigm
 
 ### 2. **Assess Your Readiness**
 Evaluate your current systems for infinite transformation potential
@@ -80,22 +80,21 @@ Use our [media assets](media/) to spread ∞aC awareness in your networks
 
 - **Hashtags**: `#InfinityAsCode` `#∞aC` `#InfiniteThinking` `#LimitlessTransformation`
 - **Repository**: `github.com/infinityascode/manifesto`
+- **Website**: `infinityascode.github.io/manifesto`
 - **Community**: Contribute through issues, discussions, and pull requests
-- **Media**: Use official assets for consistent ∞aC representation
 
 ## 🌐 Repository Structure
 
 ```
 infinityascode/manifesto/
 ├── README.md              # This landing page
-├── MANIFESTO.md           # Complete ∞aC concept & principles
+├── manifesto.md           # Complete ∞aC concept & principles
 ├── CONTRIBUTING.md        # Community engagement guidelines
 ├── LICENSE                # Creative Commons licensing
 └── media/                 # Professional visual assets
     ├── logos/             # Official branding materials
     ├── social-media/      # Platform-optimized graphics
-    ├── diagrams/          # Concept visualizations
-    └── presentations/     # Educational materials (coming soon)
+    └── diagrams/          # Concept visualizations
 ```
 
 ## 📜 License
