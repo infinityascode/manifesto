@@ -7,7 +7,7 @@
 - **Creator**: Cor Schutte (cor@prettysim.pl) / Prettysimpl
 - **First Published**: July 7, 2025
 - **Repository**: github.com/infinityascode/manifesto
-- **Initial Commit**: [Timestamp automatically recorded in Git history]
+- **Initial Commit**: July 7, 2025 09:23 GMT
 
 ### Concept Components
 - **∞aC Terminology**: "Infinity as Code" concept and terminology
@@ -31,7 +31,7 @@ This work is licensed under CC BY 4.0, which means:
 ### Required Attribution Format
 When using ∞aC concept or materials:
 ```
-"∞aC (Infinity as Code) concept by [Creator Name] - github.com/infinityascode/manifesto"
+"∞aC (Infinity as Code) concept by Cor Schutte - github.com/infinityascode/manifesto"
 ```
 
 ### Commercial Usage
@@ -77,8 +77,8 @@ When using ∞aC concept or materials:
 ### Contact Information
 For intellectual property questions, licensing discussions, or attribution clarification:
 - **Repository Issues**: Open issue in this repository
-- **Direct Contact**: [Contact method to be added]
-- **Legal Matters**: [Legal contact to be specified]
+- **Direct Contact**: cor@prettysim.pl
+- **Legal Matters**: cor@prettysim.pl
 
 ### Partnership Opportunities
 Interested in official ∞aC partnership or certification programs:
