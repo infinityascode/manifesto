@@ -1,0 +1,186 @@
+name: 🔍 PR Content Validation
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔍 Validate PR Content
+      id: validate
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const pr = context.payload.pull_request;
+          const title = pr.title || '';
+          const body = pr.body || '';
+          
+          console.log('Validating PR:', pr.number);
+          console.log('Title:', title);
+          console.log('Body length:', body.length);
+          
+          const issues = [];
+          const suggestions = [];
+          
+          // Title validation
+          if (title.length < 10) {
+            issues.push('❌ **Title too short**: Please provide a more descriptive title (minimum 10 characters)');
+            suggestions.push('Use format like: "✨ Add feature X" or "🐛 Fix issue with Y"');
+          }
+          
+          if (!title.match(/^(✨|🐛|💥|📚|🔧|🎨|🧪|🏗️|🔄|📋|🚀|⚡|🎯|🌟)/)) {
+            suggestions.push('Consider starting your title with an emoji for better categorization');
+          }
+          
+          // Body validation
+          if (body.length < 100) {
+            issues.push('❌ **Description too brief**: Please provide more detailed description (minimum 100 characters)');
+            suggestions.push('Use the PR template sections to provide comprehensive details');
+          }
+          
+          // Check for template usage
+          const templateSections = [
+            '## 🎯 **What does this PR do?**',
+            '## 🚀 **Type of Change**',
+            '## 📝 **Detailed Description**',
+            '## 📊 **Impact Assessment**'
+          ];
+          
+          const missingTemplateSection = templateSections.find(section => !body.includes(section));
+          if (missingTemplateSection) {
+            issues.push('⚠️ **Template not used**: Please use the PR template for structured information');
+            suggestions.push('Delete the PR description and let the template auto-populate, then fill it out');
+          }
+          
+          // Check for adequate change description
+          const descriptionPatterns = [
+            /what was changed:/i,
+            /why it was changed:/i,
+            /how it was changed:/i
+          ];
+          
+          const missingDescriptions = descriptionPatterns.filter(pattern => !body.match(pattern));
+          if (missingDescriptions.length > 0) {
+            suggestions.push('Provide more detail about what, why, and how changes were made');
+          }
+          
+          // Check for testing information
+          if (!body.match(/testing/i) && !body.match(/tested/i)) {
+            suggestions.push('Include information about how changes were tested');
+          }
+          
+          // Check for impact assessment
+          if (!body.match(/impact/i) && !body.match(/breaking/i)) {
+            suggestions.push('Include impact assessment of your changes');
+          }
+          
+          // Check for TODOs or incomplete sections
+          const incompleteSections = (body.match(/<!-- .* -->/g) || []).length;
+          if (incompleteSections > 2) {
+            issues.push('⚠️ **Incomplete sections**: Please fill out all relevant template sections');
+          }
+          
+          const hasBlockingIssues = issues.length > 0;
+          const score = Math.max(0, 100 - (issues.length * 30) - (suggestions.length * 10));
+          
+          // Set outputs
+          core.setOutput('has_issues', hasBlockingIssues);
+          core.setOutput('issues', issues);
+          core.setOutput('suggestions', suggestions);
+          core.setOutput('score', score);
+          
+          return {
+            hasIssues: hasBlockingIssues,
+            issues: issues,
+            suggestions: suggestions,
+            score: score
+          };
+
+    - name: 📝 Post Validation Results
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { hasIssues, issues, suggestions, score } = ${{ steps.validate.outputs.result }};
+          
+          let status = '';
+          if (score >= 80) status = '🟢 Excellent';
+          else if (score >= 60) status = '🟡 Good';
+          else if (score >= 40) status = '🟠 Needs Improvement';
+          else status = '🔴 Insufficient Detail';
+          
+          const comment = `## 🔍 PR Content Validation Results
+          
+          **Status**: ${status} (Score: ${score}/100)
+          
+          ${issues.length > 0 ? `### ❌ Issues that must be addressed:
+          ${issues.map(issue => `- ${issue}`).join('\n')}
+          ` : '### ✅ No blocking issues found!'}
+          
+          ${suggestions.length > 0 ? `### 💡 Suggestions for improvement:
+          ${suggestions.map(suggestion => `- ${suggestion}`).join('\n')}
+          ` : ''}
+          
+          ### 📋 Requirements for Merge:
+          - ✅ Title must be descriptive (10+ characters)
+          - ✅ Description must be comprehensive (100+ characters)
+          - ✅ Use the PR template for structured information
+          - ✅ Include what/why/how of changes
+          - ✅ Describe testing performed
+          - ✅ Assess impact of changes
+          
+          ${hasIssues ? `
+          **⚠️ This PR cannot be merged until the issues above are resolved.**
+          ` : `
+          **✅ This PR meets the content requirements and can be reviewed for merge.**
+          `}
+          
+          ---
+          *Automated validation by ∞aC PR Guardian*`;
+          
+          // Find existing validation comment
+          const comments = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+          
+          const existingComment = comments.data.find(
+            comment => comment.body.includes('PR Content Validation Results')
+          );
+          
+          if (existingComment) {
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: existingComment.id,
+              body: comment
+            });
+          } else {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment
+            });
+          }
+
+    - name: ❌ Fail if validation issues exist
+      if: steps.validate.outputs.has_issues == 'true'
+      run: |
+        echo "❌ PR validation failed - issues must be resolved before merge"
+        echo "Please address the validation issues and update your PR"
+        exit 1
+
+    - name: ✅ Validation passed
+      if: steps.validate.outputs.has_issues == 'false'
+      run: |
+        echo "✅ PR content validation passed!"
+        echo "Score: ${{ steps.validate.outputs.score }}/100"
