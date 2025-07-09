@@ -1,6 +1,6 @@
 # 🔒 Branch Protection Setup Guide
 
-This guide will help you configure comprehensive branch protection for the ∞aC manifesto repository to ensure all changes go through proper review and validation.
+This guide will help you configure comprehensive branch protection for the ∞aC (Absolutely Everything as Code) manifesto repository to ensure all changes go through proper review and validation.
 
 ## 🎯 Overview
 

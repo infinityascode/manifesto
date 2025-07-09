@@ -1,4 +1,4 @@
-# ∞aC (Infinity as Code) - Changelog
+# ∞aC (Absolutely Everything as Code) - Changelog
 
 All notable changes to the ∞aC manifesto and repository will be documented in this file.
 
@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive PR validation workflow for quality control
 - Detailed PR template for structured submissions
 - Branch protection setup guide for secure development
+- Clarification of XaC foundation and ABSOLUTELY everything as code distinction
 
 ### Changed
 - Enhanced repository workflow with automated quality controls

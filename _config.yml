@@ -1,5 +1,5 @@
-title: "∞aC (Infinity as Code) - Official Manifesto"
-description: "Pioneering limitless business transformation through systematic AI-readiness"
+title: "∞aC (Absolutely Everything as Code) - Official Manifesto"
+description: "Building on XaC principles to make ABSOLUTELY everything systematic code - pioneering limitless business transformation through systematic AI-readiness"
 url: "https://infinityascode.github.io/manifesto"
 baseurl: "/manifesto"
 
@@ -23,7 +23,7 @@ plugins:
 
 # SEO optimization
 seo:
-  name: "∞aC (Infinity as Code)"
+  name: "∞aC (Absolutely Everything as Code)"
   type: "WebSite"
   links:
     - "https://github.com/infinityascode/manifesto"

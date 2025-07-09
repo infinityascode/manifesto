@@ -42,6 +42,7 @@ Platform-optimized graphics and templates for consistent ∞aC branding across s
 - [ ] Statistic/fact sharing templates
 - [ ] Call-to-action graphics
 - [ ] Event/announcement templates
+- [ ] XaC foundation and ABSOLUTELY everything distinction graphics
 
 ### Animated Assets
 - [ ] ∞ symbol animations
