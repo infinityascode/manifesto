@@ -4,7 +4,7 @@
 - [ ] Filled out all required sections below
 - [ ] Tested your changes thoroughly
 - [ ] Updated documentation if needed
-- [ ] Followed the ∞aC contribution guidelines
+- [ ] Followed the ∞aC (Absolutely Everything as Code) contribution guidelines
 
 ---
 
@@ -118,7 +118,7 @@ I confirm that:
 - [ ] The description provides sufficient detail for review
 - [ ] All sections above are completed appropriately
 - [ ] I have read and followed the [Contributing Guidelines](CONTRIBUTING.md)
-- [ ] This change aligns with the ∞aC manifesto principles
+- [ ] This change aligns with the ∞aC (Absolutely Everything as Code) manifesto principles
 
 ---
 
@@ -129,7 +129,7 @@ Guidelines for PR Titles:
 - Use clear, descriptive titles
 - Include relevant emojis for quick visual categorization
 - Examples:
-  ✨ Add new feature for infinite scaling
+  ✨ Add new feature for absolute scaling
   🐛 Fix navigation issue in manifesto
   📚 Update contributing guidelines
   🔧 Refactor workflow automation
