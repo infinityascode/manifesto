@@ -2,7 +2,7 @@
 
 ## 🔒 Security Overview
 
-This repository contains the official ∞aC (Infinity as Code) concept documentation and is designed for public access while maintaining appropriate content protection.
+This repository contains the official ∞aC (Absolutely Everything as Code) concept documentation and is designed for public access while maintaining appropriate content protection.
 
 ## 🛡️ Content Protection Status
 
