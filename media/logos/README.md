@@ -1,6 +1,6 @@
 # ∞aC Logos & Visual Identity
 
-Official logo assets for the Infinity as Code concept.
+Official logo assets for the Absolutely Everything as Code concept.
 
 ## 📁 Available Assets
 
