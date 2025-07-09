@@ -143,7 +143,7 @@ jobs:
           `}
           
           ---
-          *Automated validation by ∞aC PR Guardian*`;
+          *Automated validation by ∞aC (Absolutely Everything as Code) PR Guardian*`;
           
           // Find existing validation comment
           const comments = await github.rest.issues.listComments({
